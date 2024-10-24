@@ -5,7 +5,7 @@ description = "MarzbanAPI"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
 license = "NoLicense"
 readme = "README.md"
-repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
+repository = "https://github.com/SSaeedHoseini/marzapi"
 keywords = ["OpenAPI", "OpenAPI-Generator", "MarzbanAPI"]
 include = ["marzapi/py.typed"]
 
