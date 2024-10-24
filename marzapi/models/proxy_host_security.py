@@ -34,8 +34,8 @@ class ProxyHostSecurity(str, Enum):
     TLS = 'tls'
 
     @classmethod
-    def from_json(cls, json_str: str) -> ProxyHostSecurity:
+    def from_json(cls, json_str: str) -> 'ProxyHostSecurity':
         """Create an instance of ProxyHostSecurity from a JSON string"""
-        return ProxyHostSecurity(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

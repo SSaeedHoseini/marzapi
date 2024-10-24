@@ -36,8 +36,8 @@ class UserDataLimitResetStrategy(str, Enum):
     YEAR = 'year'
 
     @classmethod
-    def from_json(cls, json_str: str) -> UserDataLimitResetStrategy:
+    def from_json(cls, json_str: str) -> 'UserDataLimitResetStrategy':
         """Create an instance of UserDataLimitResetStrategy from a JSON string"""
-        return UserDataLimitResetStrategy(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

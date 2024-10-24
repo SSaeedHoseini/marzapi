@@ -43,7 +43,7 @@ class NodeSettings(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> NodeSettings:
+    def from_json(cls, json_str: str) -> 'NodeSettings':
         """Create an instance of NodeSettings from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -56,15 +56,15 @@ class NodeSettings(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> NodeSettings:
+    def from_dict(cls, obj: dict) -> 'NodeSettings':
         """Create an instance of NodeSettings from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return NodeSettings.parse_obj(obj)
+            return cls.parse_obj(obj)
 
-        _obj = NodeSettings.parse_obj({
+        _obj = cls.parse_obj({
             "min_node_version": obj.get("min_node_version") if obj.get("min_node_version") is not None else 'v0.2.0',
             "certificate": obj.get("certificate")
         })

@@ -48,7 +48,7 @@ class NodeModify(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> NodeModify:
+    def from_json(cls, json_str: str) -> 'NodeModify':
         """Create an instance of NodeModify from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -91,15 +91,15 @@ class NodeModify(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> NodeModify:
+    def from_dict(cls, obj: dict) -> 'NodeModify':
         """Create an instance of NodeModify from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return NodeModify.parse_obj(obj)
+            return cls.parse_obj(obj)
 
-        _obj = NodeModify.parse_obj({
+        _obj = cls.parse_obj({
             "name": obj.get("name"),
             "address": obj.get("address"),
             "port": obj.get("port"),

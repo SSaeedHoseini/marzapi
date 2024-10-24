@@ -35,8 +35,8 @@ class NodeStatus(str, Enum):
     DISABLED = 'disabled'
 
     @classmethod
-    def from_json(cls, json_str: str) -> NodeStatus:
+    def from_json(cls, json_str: str) -> 'NodeStatus':
         """Create an instance of NodeStatus from a JSON string"""
-        return NodeStatus(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

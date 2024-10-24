@@ -34,8 +34,8 @@ class UserStatusModify(str, Enum):
     ON_HOLD = 'on_hold'
 
     @classmethod
-    def from_json(cls, json_str: str) -> UserStatusModify:
+    def from_json(cls, json_str: str) -> 'UserStatusModify':
         """Create an instance of UserStatusModify from a JSON string"""
-        return UserStatusModify(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

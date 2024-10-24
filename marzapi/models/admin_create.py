@@ -46,7 +46,7 @@ class AdminCreate(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> AdminCreate:
+    def from_json(cls, json_str: str) -> 'AdminCreate':
         """Create an instance of AdminCreate from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -59,15 +59,15 @@ class AdminCreate(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> AdminCreate:
+    def from_dict(cls, obj: dict) -> 'AdminCreate':
         """Create an instance of AdminCreate from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return AdminCreate.parse_obj(obj)
+            return cls.parse_obj(obj)
 
-        _obj = AdminCreate.parse_obj({
+        _obj = cls.parse_obj({
             "username": obj.get("username"),
             "is_sudo": obj.get("is_sudo"),
             "telegram_id": obj.get("telegram_id"),

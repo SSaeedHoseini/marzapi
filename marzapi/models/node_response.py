@@ -51,7 +51,7 @@ class NodeResponse(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> NodeResponse:
+    def from_json(cls, json_str: str) -> 'NodeResponse':
         """Create an instance of NodeResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -64,15 +64,15 @@ class NodeResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> NodeResponse:
+    def from_dict(cls, obj: dict) -> 'NodeResponse':
         """Create an instance of NodeResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return NodeResponse.parse_obj(obj)
+            return cls.parse_obj(obj)
 
-        _obj = NodeResponse.parse_obj({
+        _obj = cls.parse_obj({
             "name": obj.get("name"),
             "address": obj.get("address"),
             "port": obj.get("port") if obj.get("port") is not None else 62050,

@@ -44,7 +44,7 @@ class CoreStats(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> CoreStats:
+    def from_json(cls, json_str: str) -> 'CoreStats':
         """Create an instance of CoreStats from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -57,15 +57,15 @@ class CoreStats(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> CoreStats:
+    def from_dict(cls, obj: dict) -> 'CoreStats':
         """Create an instance of CoreStats from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return CoreStats.parse_obj(obj)
+            return cls.parse_obj(obj)
 
-        _obj = CoreStats.parse_obj({
+        _obj = cls.parse_obj({
             "version": obj.get("version"),
             "started": obj.get("started"),
             "logs_websocket": obj.get("logs_websocket")

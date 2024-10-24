@@ -47,7 +47,7 @@ class NodeCreate(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> NodeCreate:
+    def from_json(cls, json_str: str) -> 'NodeCreate':
         """Create an instance of NodeCreate from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -60,15 +60,15 @@ class NodeCreate(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> NodeCreate:
+    def from_dict(cls, obj: dict) -> 'NodeCreate':
         """Create an instance of NodeCreate from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return NodeCreate.parse_obj(obj)
+            return cls.parse_obj(obj)
 
-        _obj = NodeCreate.parse_obj({
+        _obj = cls.parse_obj({
             "name": obj.get("name"),
             "address": obj.get("address"),
             "port": obj.get("port") if obj.get("port") is not None else 62050,

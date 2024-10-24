@@ -38,8 +38,8 @@ class ProxyHostALPN(str, Enum):
     H2_COMMA_HTTP_SLASH_1_DOT_1 = 'h2,http/1.1'
 
     @classmethod
-    def from_json(cls, json_str: str) -> ProxyHostALPN:
+    def from_json(cls, json_str: str) -> 'ProxyHostALPN':
         """Create an instance of ProxyHostALPN from a JSON string"""
-        return ProxyHostALPN(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

@@ -35,8 +35,8 @@ class ProxyTypes(str, Enum):
     SHADOWSOCKS = 'shadowsocks'
 
     @classmethod
-    def from_json(cls, json_str: str) -> ProxyTypes:
+    def from_json(cls, json_str: str) -> 'ProxyTypes':
         """Create an instance of ProxyTypes from a JSON string"""
-        return ProxyTypes(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

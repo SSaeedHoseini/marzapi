@@ -76,13 +76,13 @@ class LocationInner(BaseModel):
             return v
 
     @classmethod
-    def from_dict(cls, obj: dict) -> LocationInner:
+    def from_dict(cls, obj: dict) -> 'LocationInner':
         return cls.from_json(json.dumps(obj))
 
     @classmethod
-    def from_json(cls, json_str: str) -> LocationInner:
+    def from_json(cls, json_str: str) -> 'LocationInner':
         """Returns the object represented by the json string"""
-        instance = LocationInner.construct()
+        instance = cls.construct()
         error_messages = []
         # deserialize data into str
         try:

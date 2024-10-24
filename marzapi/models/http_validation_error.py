@@ -43,7 +43,7 @@ class HTTPValidationError(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> HTTPValidationError:
+    def from_json(cls, json_str: str) -> 'HTTPValidationError':
         """Create an instance of HTTPValidationError from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -63,15 +63,15 @@ class HTTPValidationError(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> HTTPValidationError:
+    def from_dict(cls, obj: dict) -> 'HTTPValidationError':
         """Create an instance of HTTPValidationError from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return HTTPValidationError.parse_obj(obj)
+            return cls.parse_obj(obj)
 
-        _obj = HTTPValidationError.parse_obj({
+        _obj = cls.parse_obj({
             "detail": [ValidationError.from_dict(_item) for _item in obj.get("detail")] if obj.get("detail") is not None else None
         })
         return _obj

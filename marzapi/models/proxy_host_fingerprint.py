@@ -42,8 +42,8 @@ class ProxyHostFingerprint(str, Enum):
     RANDOMIZED = 'randomized'
 
     @classmethod
-    def from_json(cls, json_str: str) -> ProxyHostFingerprint:
+    def from_json(cls, json_str: str) -> 'ProxyHostFingerprint':
         """Create an instance of ProxyHostFingerprint from a JSON string"""
-        return ProxyHostFingerprint(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 
